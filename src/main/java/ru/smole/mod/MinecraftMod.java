@@ -11,6 +11,8 @@ import ru.smole.binding.KeyBinding;
 import ru.smole.binding.KeyBindingProvider;
 import ru.smole.config.ConfigurationProvider;
 import ru.smole.config.YamlProvider;
+import ru.smole.module.ModuleProvider;
+import ru.smole.module.Modules;
 import ru.smole.notify.NotificationProvider;
 import ru.smole.notify.Notifications;
 import ru.smole.render.Render;
@@ -36,6 +38,7 @@ public class MinecraftMod implements Mod {
     private final KeyBindingProvider binding;
     private final RenderProvider render;
     private final Logger logger;
+    private final ModuleProvider modules;
 
     public static MinecraftMod getInstance() {
         return initialize ? instance : null;
@@ -57,6 +60,7 @@ public class MinecraftMod implements Mod {
         bars = new StatusBars(this);
         binding = new KeyBinding(this);
         notifies = new Notifications(this);
+        modules = new Modules(this);
     }
 
     @net.minecraftforge.fml.common.Mod.EventHandler
@@ -107,6 +111,10 @@ public class MinecraftMod implements Mod {
 
     public StatusBarProvider getBars() {
         return bars;
+    }
+
+    public ModuleProvider getModules() {
+        return modules;
     }
 
     public NotificationProvider getNotifies() {
