@@ -11,16 +11,10 @@ import ru.smole.binding.KeyBinding;
 import ru.smole.binding.KeyBindingProvider;
 import ru.smole.config.ConfigurationProvider;
 import ru.smole.config.YamlProvider;
-import ru.smole.module.ModuleProvider;
-import ru.smole.module.Modules;
-import ru.smole.notify.NotificationProvider;
-import ru.smole.notify.Notifications;
 import ru.smole.render.Render;
 import ru.smole.render.RenderProvider;
 import ru.smole.scheduler.Scheduler;
 import ru.smole.scheduler.SchedulerProvider;
-import ru.smole.status.StatusBarProvider;
-import ru.smole.status.StatusBars;
 
 import java.io.File;
 
@@ -32,13 +26,10 @@ public class MinecraftMod implements Mod {
     private final Minecraft minecraft;
     private final String name;
     private final SchedulerProvider scheduler;
-    private final NotificationProvider notifies;
     private final ConfigurationProvider configurations;
-    private final StatusBarProvider bars;
     private final KeyBindingProvider binding;
     private final RenderProvider render;
     private final Logger logger;
-    private final ModuleProvider modules;
 
     public static MinecraftMod getInstance() {
         return initialize ? instance : null;
@@ -57,10 +48,7 @@ public class MinecraftMod implements Mod {
         scheduler = new Scheduler(this);
         configurations = new YamlProvider(this);
         render = new Render(this);
-        bars = new StatusBars(this);
         binding = new KeyBinding(this);
-        notifies = new Notifications(this);
-        modules = new Modules(this);
     }
 
     @net.minecraftforge.fml.common.Mod.EventHandler
@@ -109,17 +97,6 @@ public class MinecraftMod implements Mod {
         return binding;
     }
 
-    public StatusBarProvider getBars() {
-        return bars;
-    }
-
-    public ModuleProvider getModules() {
-        return modules;
-    }
-
-    public NotificationProvider getNotifies() {
-        return notifies;
-    }
 
     public Minecraft getMinecraft() {
         return minecraft;
