@@ -30,10 +30,6 @@ public class HookClassTransformer {
         containerParser.parseHooks(className);
     }
 
-    public void registerHookContainer(InputStream classData) {
-        containerParser.parseHooks(classData);
-    }
-
     public byte[] transform(String className, byte[] bytecode) {
         List<AsmHook> hooks = hooksMap.get(className);
 
