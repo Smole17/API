@@ -15,7 +15,7 @@ public class Scheduler extends Thread implements SchedulerProvider {
 
     private Map<Integer, SchedulerTask> tasks;
     private Logger logger;
-    private int next_id = 0;
+    private int next_id;
 
     public Scheduler(Mod mod) {
         super("Scheduler-Thread");
@@ -23,16 +23,19 @@ public class Scheduler extends Thread implements SchedulerProvider {
             throw new RuntimeException("MinecraftMod not initialize");
         tasks = new HashMap<>();
         logger = mod.getLogger();
+        next_id = 0;
         start();
     }
 
     public SchedulerTask runTaskTimer(int delay, Runnable run) {
         int id = next_id++;
+        next_id = id;
         return tasks.put(id, new TimerTask(id, delay, run));
     }
 
     public SchedulerTask runTaskLater(int delay, Runnable run) {
         int id = next_id++;
+        next_id = id;
         return tasks.put(id, new LaterTask(id, delay, run));
     }
 
