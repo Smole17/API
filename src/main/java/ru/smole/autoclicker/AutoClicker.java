@@ -5,12 +5,17 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AutoClicker implements IAutoClicker {
 
     private Minecraft mc = Minecraft.getMinecraft();
     private List<Integer> clicks;
+
+    public AutoClicker() {
+       clicks = new ArrayList<>();
+    }
 
     @Override
     public void click() {
