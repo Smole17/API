@@ -34,8 +34,8 @@ public class AutoClicker implements IAutoClicker {
                     mc.playerController.attackEntity(mc.player, mc.pointedEntity);
                 }
 
-                clicks.add(0);
                 mc.player.swingArm(EnumHand.MAIN_HAND);
+                clicks.add(0);
             }
         }
     }
