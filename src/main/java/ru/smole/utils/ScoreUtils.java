@@ -24,7 +24,6 @@ public class ScoreUtils {
                     .filter(score -> score.getObjective().getName().equals(sidebar.getName()))
                     .map(score -> score.getPlayerName() + getSuffixFromContainingTeam(scoreboard, score.getPlayerName()))
                     .collect(Collectors.toList());
-
         }
 
         return found;
