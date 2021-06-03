@@ -5,9 +5,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 
+import java.util.List;
+
 public class AutoClicker implements IAutoClicker {
 
     private Minecraft mc = Minecraft.getMinecraft();
+    private List<Integer> clicks;
 
     @Override
     public void click() {
@@ -26,8 +29,14 @@ public class AutoClicker implements IAutoClicker {
                     mc.playerController.attackEntity(mc.player, mc.pointedEntity);
                 }
 
+                clicks.add(0);
                 mc.player.swingArm(EnumHand.MAIN_HAND);
             }
         }
+    }
+
+    @Override
+    public List<Integer> getClicks() {
+        return clicks;
     }
 }

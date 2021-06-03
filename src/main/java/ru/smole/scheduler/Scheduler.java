@@ -28,9 +28,6 @@ public class Scheduler extends Thread implements SchedulerProvider {
 
     public SchedulerTask runTaskTimer(int delay, Runnable run) {
         int id = next_id++;
-        System.out.println(id);
-        System.out.println(delay);
-        System.out.println(run);
         return tasks.put(id, new TimerTask(id, delay, run));
     }
 
