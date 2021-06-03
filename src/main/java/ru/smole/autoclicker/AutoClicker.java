@@ -11,11 +11,6 @@ import java.util.List;
 public class AutoClicker implements IAutoClicker {
 
     private Minecraft mc = Minecraft.getMinecraft();
-    private List<Integer> clicks;
-
-    public AutoClicker() {
-       clicks = new ArrayList<>();
-    }
 
     @Override
     public void click() {
@@ -35,13 +30,7 @@ public class AutoClicker implements IAutoClicker {
                 }
 
                 mc.player.swingArm(EnumHand.MAIN_HAND);
-                clicks.add(0);
             }
         }
-    }
-
-    @Override
-    public List<Integer> getClicks() {
-        return clicks;
     }
 }
