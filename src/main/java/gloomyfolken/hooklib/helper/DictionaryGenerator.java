@@ -9,11 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Генерирует из mcp-шного methods.csv словарь с названиями методов для хуклибы.
- */
 public class DictionaryGenerator {
-
     public static void main(String[] args) throws Exception {
         List<String> lines = FileUtils.readLines(new File("methods.csv"));
         lines.remove(0);
