@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 public class DictionaryGenerator {
-
     public static void main(String[] args) throws Exception {
         List<String> lines = FileUtils.readLines(new File("methods.csv"));
         lines.remove(0);
