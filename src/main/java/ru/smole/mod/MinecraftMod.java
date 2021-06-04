@@ -9,8 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.smole.binding.KeyBinding;
 import ru.smole.binding.KeyBindingProvider;
-import ru.smole.config.ConfigurationProvider;
-import ru.smole.config.YamlProvider;
 import ru.smole.render.Render;
 import ru.smole.render.RenderProvider;
 import ru.smole.scheduler.Scheduler;
@@ -26,7 +24,6 @@ public class MinecraftMod implements Mod {
     private final Minecraft minecraft;
     private final String name;
     private final SchedulerProvider scheduler;
-    private final ConfigurationProvider configurations;
     private final KeyBindingProvider binding;
     private final RenderProvider render;
     private final Logger logger;
@@ -46,7 +43,6 @@ public class MinecraftMod implements Mod {
         minecraft = Minecraft.getMinecraft();
         logger = LogManager.getLogger(name);
         scheduler = new Scheduler(this);
-        configurations = new YamlProvider(this);
         render = new Render(this);
         binding = new KeyBinding(this);
     }
@@ -83,10 +79,6 @@ public class MinecraftMod implements Mod {
 
     public final SchedulerProvider getScheduler() {
         return scheduler;
-    }
-
-    public ConfigurationProvider getConfigurations() {
-        return configurations;
     }
 
     public RenderProvider getRender() {

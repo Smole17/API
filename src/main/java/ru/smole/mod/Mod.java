@@ -3,7 +3,6 @@ package ru.smole.mod;
 import net.minecraft.client.Minecraft;
 import org.apache.logging.log4j.Logger;
 import ru.smole.binding.KeyBindingProvider;
-import ru.smole.config.ConfigurationProvider;
 import ru.smole.render.RenderProvider;
 import ru.smole.scheduler.SchedulerProvider;
 
@@ -24,8 +23,6 @@ public interface Mod {
     String getName();
 
     SchedulerProvider getScheduler();
-
-    ConfigurationProvider getConfigurations();
 
     RenderProvider getRender();
 
