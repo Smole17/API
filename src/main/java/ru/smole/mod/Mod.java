@@ -25,8 +25,6 @@ public interface Mod {
 
     SchedulerProvider getScheduler();
 
-    ConfigurationProvider getConfigurations();
-
     RenderProvider getRender();
 
     KeyBindingProvider getBinding();
